@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>myhtml</title>
+<link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1>省市区三级联动下拉菜单</h1>
+  </div>
+</header>
+
+<div class="main">
+  <div class="wrap">
+
+    <fieldset id="city_china_val">
+      <legend>选择</legend>
+      <section>
+        <select class="province other" data-first-title="选择省">
+          <option value="">请选择</option>
+          <option value="广东省" selected>广东省</option>
+        </select>
+        <select class="city" data-first-title="选择市">
+          <option value="">请选择</option>
+          <option value="广州市" selected>广州市</option>
+        </select>
+        <select class="area" data-first-title="选择地区">
+          <option value="">请选择</option>
+          <option value="越秀区" selected>越秀区</option>
+        </select>
+      </section>
+    </fieldset>
+
+  </div>
+</div>
+
+<script src="//cdn.staticfile.org/zepto/1.0/zepto.min.js"></script>
+<script src="jquery.cxselect.js"></script>
+<script>
+(function() {
+  var urlChina = 'cityData.min.json';
+  $.cxSelect.defaults.url = urlChina;
+
+  // 设置默认值及选项标题
+  $('#city_china_val').cxSelect({
+    selects: ['province', 'city', 'area'],
+    emptyStyle: 'none'
+  });
+
+})();
+</script>
+</body>
+</html>
