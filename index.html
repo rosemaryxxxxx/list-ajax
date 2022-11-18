@@ -1,56 +1,69 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>myhtml</title>
-<link rel="stylesheet" href="demo.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple jQuery plugin for picking provinces, cities and districts of China.">
+    <meta name="keywords"
+          content="中国, 省份, 城市, 行政区, 省市区, 三级联动, 地址选择器, HTML, CSS, JS, JavaScript, jQuery plugin, province, city, district, pick, picker, picking, front-end, frontend, web development">
+    <meta name="author" content="Tao Shi">
+    <title>city-picker</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <link href="css/city-picker.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
-
 <body>
-<header>
-  <div class="wrap">
-    <h1>省市区三级联动下拉菜单</h1>
-  </div>
-</header>
 
-<div class="main">
-  <div class="wrap">
+<!-- Content -->
+<div class="container">
+    <h2 class="page-header">省市区联动下拉框</h2>
+    <div class="docs-methods">
+        <form class="form-inline">
+            <div id="distpicker">
+                <div class="form-group">
+                    <div style="position: relative;">
+                        <input id="city-picker3" class="form-control" readonly type="text" value="广东省/广州市/越秀区"
+                               data-toggle="city-picker">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-warning" id="reset" type="button">reset</button>
+                    <button class="btn btn-danger" id="destroy" type="button">destroy</button>
 
-    <fieldset id="city_china_val">
-      <legend>选择</legend>
-      <section>
-        <select class="province other" data-first-title="选择省">
-          <option value="">请选择</option>
-          <option value="广东省" selected>广东省</option>
-        </select>
-        <select class="city" data-first-title="选择市">
-          <option value="">请选择</option>
-          <option value="广州市" selected>广州市</option>
-        </select>
-        <select class="area" data-first-title="选择地区">
-          <option value="">请选择</option>
-          <option value="越秀区" selected>越秀区</option>
-        </select>
-      </section>
-    </fieldset>
-
-  </div>
+                    <div class="dropup">
+                        <button id="code-count" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="text">Full Code</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0);" data-count="">Full Code</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0);" data-count="province">Province Code</a></li>
+                            <li><a href="javascript:void(0);" data-count="city">City Code</a></li>
+                            <li><a href="javascript:void(0);" data-count="district">District Code</a></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-success" id="get-code" type="button">getCode<span class="code"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
-<script src="/zepto.min.js"></script>
-<script src="jquery.cxselect.js"></script>
-<script>
-(function() {
-  var urlChina = 'cityData.min.json';
-  $.cxSelect.defaults.url = urlChina;
+<!-- Footer -->
+<footer class="docs-footer">
+    <div class="container">
+        <span class="hearts"></span>
+    </div>
+</footer>
 
-  // 设置默认值及选项标题
-  $('#city_china_val').cxSelect({
-    selects: ['province', 'city', 'area'],
-    emptyStyle: 'none'
-  });
-
-})();
-</script>
+<!-- Scripts -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+<script src="js/city-picker.data.js"></script>
+<script src="js/city-picker.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
